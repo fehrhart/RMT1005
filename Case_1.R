@@ -5,9 +5,6 @@ rm(list=ls())
 #set working directory (if wanted)
 setwd("C:/Users...")
 
-# Load required libraries
-library(ggplot2)
-
 # Step 1: Data Import
 data <- read.csv("PBC_Patients.csv")
 colnames(data) <- c('PatientID','Age','Sex','Weight','BPDia','BPSys','Glucose','HighGlucose','Group')
