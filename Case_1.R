@@ -3,14 +3,14 @@
 rm(list=ls())
 
 #set working directory (if wanted)
-setwd("C:/Users/friederike.ehrhart/Documents/Teaching/RMT1005/RMT1005 2024")
+setwd("C:/Users...")
 
 # Load required libraries
 library(ggplot2)
 
 # Step 1: Data Import
 data <- read.csv("PBC_Patients.csv")
-colnames(data) <- c('PatientID','Age','Sex','Weight','BPDia','BPSys','Glucose','HighGlucose')
+colnames(data) <- c('PatientID','Age','Sex','Weight','BPDia','BPSys','Glucose','HighGlucose','Group')
 
 #Inspect the data
 head(data)
@@ -24,10 +24,10 @@ print(sum(data$Sex == 'M'))
 print(sum(data$Sex == 'F'))
 (NumberM/(NumberM + NumberF))*100
 
-# Step 4: Subsetting normal and high glucose levels
-dataNormal <- subset(data, Glucose <= 100)
-dataHigh <- subset(data, Glucose > 100)
+# Step 4: Subsetting control and experimental groups
+dataControl <- subset(data, Group == 'C')
+dataExp <- subset(data, Group == 'E')
 
 # Step 5: Data Export
-write.csv(dataNormal, "GlucoseNormal.csv", row.names = FALSE)
-write.csv(dataHigh, "GlucoseHigh.csv", row.names = FALSE)
+write.csv(dataControl, "Control.csv", row.names = FALSE)
+write.csv(dataExp, "Exp.csv", row.names = FALSE)
