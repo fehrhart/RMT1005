@@ -40,7 +40,7 @@ ggplot(Pdata, aes(x="", y=value, fill=group)) +
   coord_polar("y", start=0)
 
 #Better - remove numbers, white background
-ggplot(data, aes(x="", y=value, fill=group)) +
+ggplot(Pdata, aes(x="", y=value, fill=group)) +
   geom_bar(stat="identity", width=1, color="white") +
   coord_polar("y", start=0) +  theme_void()
 
